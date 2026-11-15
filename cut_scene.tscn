@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://uxaixqb07wrb"]
+
+[ext_resource type="Texture2D" uid="uid://duhyg8f3n27vs" path="res://cut_scene/CT_F1.png" id="1_we0jh"]
+
+[sub_resource type="Animation" id="Animation_we0jh"]
+resource_name = "initial_cut_scene"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cn5lr"]
+_data = {
+&"initial_cut_scene": SubResource("Animation_we0jh")
+}
+
+[node name="cut_scene" type="Node2D" unique_id=1091215748]
+
+[node name="animation_set_up" type="Node2D" parent="." unique_id=2076334787]
+
+[node name="Sprite2D" type="Sprite2D" parent="animation_set_up" unique_id=293839931]
+position = Vector2(576.49994, 327.5)
+scale = Vector2(2.8724997, 1.6025)
+texture = ExtResource("1_we0jh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="animation_set_up" unique_id=1054268115]
+libraries/ = SubResource("AnimationLibrary_cn5lr")

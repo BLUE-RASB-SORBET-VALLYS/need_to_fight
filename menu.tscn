@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://coj6051qgvnyv"]
+
+[ext_resource type="Script" uid="uid://dyaplyrpqu7pm" path="res://menu.gd" id="1_lti8b"]
+[ext_resource type="Texture2D" uid="uid://doxbu6mpaay6d" path="res://user_interface/menu_backgroung.png" id="2_ouk20"]
+[ext_resource type="Texture2D" uid="uid://daraolpy8mlcv" path="res://user_interface/play_button.png" id="3_ytr4m"]
+[ext_resource type="Texture2D" uid="uid://bhvyvxxtn4mr1" path="res://user_interface/setting_button.png" id="4_l48gv"]
+[ext_resource type="Texture2D" uid="uid://bugf83bxrnuds" path="res://user_interface/exit_button.png" id="5_ecwwl"]
+[ext_resource type="AudioStream" uid="uid://cuwsbkm7og2t5" path="res://sounds/initial_backgroung_music.wav" id="6_l48gv"]
+[ext_resource type="Script" uid="uid://dxtdx06ouaf4w" path="res://audio_stream_player.gd" id="7_ecwwl"]
+
+[node name="Menu" type="Control" unique_id=202951506]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -2.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lti8b")
+
+[node name="MenuBackgroung" type="Sprite2D" parent="." unique_id=667497963]
+position = Vector2(569.5, 327.00003)
+scale = Vector2(3.8500006, 2.186667)
+texture = ExtResource("2_ouk20")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=940410279]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1681463640]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="play" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1812438452]
+layout_mode = 2
+size_flags_horizontal = 4
+icon = ExtResource("3_ytr4m")
+
+[node name="settings" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1525204414]
+layout_mode = 2
+size_flags_horizontal = 4
+icon = ExtResource("4_l48gv")
+
+[node name="exit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=215327709]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "
+"
+icon = ExtResource("5_ecwwl")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1242359319]
+stream = ExtResource("6_l48gv")
+autoplay = true
+mix_target = 2
+script = ExtResource("7_ecwwl")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
